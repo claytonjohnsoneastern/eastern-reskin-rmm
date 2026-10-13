@@ -28,6 +28,6 @@ fi
 npm install --no-audit --no-fund
 npx quasar build
 
-OUT="$HERE/eastern-rmm-web-v$VER.tar.gz"
+OUT="$HERE/eastern-rmm-modern-web-v$VER.tar.gz"
 tar -czf "$OUT" dist
 echo "Built $OUT"

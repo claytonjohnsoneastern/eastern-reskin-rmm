@@ -1,0 +1,1063 @@
+Eastern RMM modern draft: complete theme change against tacticalrmm-web v0.101.64.
+Apply in a clean checkout of tag v0.101.64 with: git apply --3way <this file>
+
+diff --git a/package-lock.json b/package-lock.json
+index c6609ea..e32ce61 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -8,6 +8,7 @@
+       "name": "web",
+       "version": "0.101.64",
+       "dependencies": {
++        "@fontsource/heebo": "5.3.0",
+         "@quasar/extras": "1.16.17",
+         "@vueuse/core": "11.2.0",
+         "@vueuse/integrations": "11.2.0",
+@@ -177,6 +178,15 @@
+         "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+       }
+     },
++    "node_modules/@fontsource/heebo": {
++      "version": "5.3.0",
++      "resolved": "https://registry.npmjs.org/@fontsource/heebo/-/heebo-5.3.0.tgz",
++      "integrity": "sha512-Z01U2fWWrfJnSE6SmDYtZJ1uCnKs8V3WSdip/lVDfKnsC1ASumb7IZmOrXjaYK+PVm7qGD3+4cwTAFOxG5uMaw==",
++      "license": "OFL-1.1",
++      "funding": {
++        "url": "https://github.com/sponsors/ayuhito"
++      }
++    },
+     "node_modules/@humanwhocodes/config-array": {
+       "version": "0.11.14",
+       "resolved": "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.14.tgz",
+@@ -593,9 +603,6 @@
+         "arm"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -617,9 +624,6 @@
+         "arm"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -641,9 +645,6 @@
+         "arm64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -665,9 +666,6 @@
+         "arm64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -689,9 +687,6 @@
+         "x64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -713,9 +708,6 @@
+         "x64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+diff --git a/package.json b/package.json
+index 90bfc21..26931e4 100644
+--- a/package.json
++++ b/package.json
+@@ -2,7 +2,7 @@
+   "name": "web",
+   "version": "0.101.64",
+   "private": true,
+-  "productName": "Tactical RMM",
++  "productName": "Eastern RMM",
+   "scripts": {
+     "serve": "quasar dev",
+     "build": "quasar build",
+@@ -10,6 +10,7 @@
+     "format": "prettier --write \"**/*.{js,ts,vue,,html,md,json}\" --ignore-path .gitignore"
+   },
+   "dependencies": {
++    "@fontsource/heebo": "5.3.0",
+     "@quasar/extras": "1.16.17",
+     "@vueuse/core": "11.2.0",
+     "@vueuse/integrations": "11.2.0",
+diff --git a/public/favicon.ico b/public/favicon.ico
+index bbdf1883e270931f969719b90627a5b161ad6bd4..4631febc5fd84dafbba0ac546414667444c9c17a 100644
+GIT binary patch
+literal 4856
+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
+O>*m%KEc$=v)PDd^S@1ys
+
+delta 735
+zcmV<50wDePCH4i8MkIf|Nkl<ZI8S|(+e=hY6vlu1sN>P88K=~ggi7r)fuTe}j%JP(
+zloDYCiWd+c1Rn%J5dQ!leelf(ArM1G2BHfQ;w>a$oYXRc8Y8t5)10X>FXLR!iF2w6
+zn`l36HsAWO*0;YU0F}RwfW%~p<P?=~5VpTTBor&t%7hR?O^|;fAxU76A<+cp6f?(j
+zPO)FkKoJ2xEWcxUWr^*L5TPvy1|YP94i`ygp%xTpb2v4JU_gSffz7X5yqJA~*XJWH
+zE{;<tPm*&Y2jauT$tnhe!lZkckFOMj@qkb(DzD<aGm4^wQPqF9`g=+t1jQGN_#BwQ
+z<Jv+PEkeCoVdsDT-7yqJAuTP9-rim$Ns6&%VPS!mmKF+aHr4_!c{ja@NHPhv{Fa@2
+zeNTx*!lb9C<8(T8fW>0LYPI6=cvxRwXMTR3hK2@gMTM+vKj-~S5Mf9b>a|K6j~y;T
+zp^)Y(wY9a>*Vi*JFrar+U0sdC;fQv0sjQecpPupgt%84$;)Pmr!^+(FDqf#g7uD3%
+z(Ad~We}BIYsH&=BaBwgRxKe(Rnb#9|7gYoTHT$fQROvKRQ*K?<)YL>>T^)UWef0G7
+z!~kwqmoYjz!p15H5bD7raPEwqCl5z-Kxbzs?d|QfwzksU-Mt53G#V+sZe{e*bAmfM
+z05!=hD7}Anp0NjW>}>D+7f@1K#7Dno;I1BG9iSO^G+!n+;{wA^#%OMC*4^&v>Y}Z!
+zjgF2EhK7bPnM{<F=P^D!$@ecm^P&T^OQKPbUzAPctC?x{?4LmWQpmDQ#cewit|3-E
+zk?0CV0UE?;(IC0VyIG8nOz64LPG)8%w#x;$=Z07L^g2u=tVDlg4?ugB_e&hhOCc|}
+zkj1xaq^4UC`}|C~+<2E1l*rzw#{jgcq<FAoLDsQDZ20}GE$*`A(+Xqv<OhrLBoff(
+RrtJU#002ovPDHLkV1iHlUkd;L
+
+diff --git a/quasar.config.js b/quasar.config.js
+index af5aa71..701d048 100644
+--- a/quasar.config.js
++++ b/quasar.config.js
+@@ -30,10 +30,10 @@ module.exports = configure(function (/* ctx */) {
+     // app boot file (/src/boot)
+     // --> boot files are part of "main.js"
+     // https://v2.quasar.dev/quasar-cli-vite/boot-files
+-    boot: ["pinia", "axios", "monaco", "integrations"],
++    boot: ["pinia", "axios", "monaco", "integrations", "eastern"],
+ 
+     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
+-    css: ["app.sass"],
++    css: ["app.sass", "eastern.sass"],
+ 
+     // https://github.com/quasarframework/quasar/tree/dev/extras
+     extras: [
+diff --git a/src/boot/eastern.js b/src/boot/eastern.js
+new file mode 100644
+index 0000000..01e8f60
+--- /dev/null
++++ b/src/boot/eastern.js
+@@ -0,0 +1,8 @@
++// Eastern theme boot file: self-hosted brand typeface (same family as ettky.com).
++// No runtime behaviour — fonts only, bundled so nothing is fetched from a CDN.
++import "@fontsource/heebo/latin-400";
++import "@fontsource/heebo/latin-500";
++import "@fontsource/heebo/latin-700";
++import "@fontsource/heebo/latin-900";
++
++export default () => {};
+diff --git a/src/components/ui/EasternLogo.vue b/src/components/ui/EasternLogo.vue
+new file mode 100644
+index 0000000..e0364b8
+--- /dev/null
++++ b/src/components/ui/EasternLogo.vue
+@@ -0,0 +1,20 @@
++<template>
++  <span
++    class="et-logo"
++    :class="{ 'et-logo--compact': compact }"
++    role="img"
++    aria-label="Eastern Telephone &amp; Technologies"
++  >
++    <span class="et-logo__word" aria-hidden="true">Eastern</span>
++    <span class="et-logo__rules" aria-hidden="true"></span>
++    <span class="et-logo__sub" aria-hidden="true"
++      >Telephone &amp; Technologies</span
++    >
++  </span>
++</template>
++
++<script setup lang="ts">
++// Eastern Telephone & Technologies wordmark, set in live type so it stays sharp
++// at any size and follows the surrounding text colour. Styles: src/css/eastern.sass
++withDefaults(defineProps<{ compact?: boolean }>(), { compact: false });
++</script>
+diff --git a/src/css/eastern.sass b/src/css/eastern.sass
+new file mode 100644
+index 0000000..61b84f2
+--- /dev/null
++++ b/src/css/eastern.sass
+@@ -0,0 +1,434 @@
++// Eastern Telephone & Technologies — theme layer for the RMM console (modern draft).
++// Presentation only: no rule here hides, moves or disables a control, so every
++// menu, tab and dialog stays where Tactical's documentation says it is.
++
++// ---- Tokens ---------------------------------------------------------------
++:root
++  --et-ink: #1D252B
++  --et-orange: #EB5937
++  --et-canvas: #F3F5F7
++  --et-surface: #FFFFFF
++  --et-surface-2: #F7F9FA
++  --et-hover: #EEF2F5
++  --et-line: #E1E6EA
++  --et-line-strong: #CBD3D9
++  --et-text: #1D252B
++  --et-muted: #5E6B75
++  --et-selected: #E3EFF9
++  --et-shadow: 0 10px 28px rgba(16, 24, 31, 0.12), 0 2px 6px rgba(16, 24, 31, 0.06)
++
++body.body--dark
++  --q-primary: #55A6E6
++  --et-canvas: #0E1317
++  --et-surface: #161D22
++  --et-surface-2: #1B242A
++  --et-hover: #212B32
++  --et-line: #26313A
++  --et-line-strong: #34424D
++  --et-text: #E6EBEF
++  --et-muted: #93A1AC
++  --et-selected: #173450
++  --et-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3)
++
++body
++  background: var(--et-canvas)
++  color: var(--et-text)
++
++body a
++  color: var(--q-primary)
++
++// On dark surfaces the brighter blue carries ink-coloured text and ticks, which
++// keeps both the blue-on-dark and the label-on-blue pairs above 4.5:1.
++body.body--dark .bg-primary.text-white
++  color: #0B1116 !important
++
++body.body--dark .q-checkbox__inner--truthy .q-checkbox__svg
++  color: #0B1116
++
++// ---- Logo lockup ------------------------------------------------------------
++// Live-text rendering of the Eastern wordmark: heavy "Eastern", thick rule over a
++// thin rule, then the company line. em-based so it scales from font-size.
++.et-logo
++  display: inline-flex
++  flex-direction: column
++  align-items: stretch
++  vertical-align: middle
++  color: inherit
++  font-family: "Heebo", Arial, sans-serif
++  line-height: 1
++  white-space: nowrap
++  user-select: none
++
++.et-logo__word
++  font-size: 1em
++  font-weight: 900
++  letter-spacing: -0.005em
++  line-height: 0.8
++  padding-bottom: 0.07em
++
++.et-logo__rules
++  display: block
++  height: 0.16em
++  border-top: 0.085em solid currentColor
++  border-bottom: 0.03em solid currentColor
++
++.et-logo__sub
++  font-size: 0.262em
++  font-weight: 500
++  line-height: 1
++  padding-top: 0.22em
++  text-align: justify
++  text-align-last: justify
++
++.et-logo--compact .et-logo__sub
++  display: none
++
++// ---- App bar: header + the File/View/Agents menu read as one surface ---------
++.et-header
++  background: var(--et-surface)
++  color: var(--et-text)
++  box-shadow: none
++
++  .q-toolbar
++    min-height: 48px
++
++  .q-toolbar__title
++    display: flex
++    align-items: center
++    gap: 12px
++    font-size: 16px
++
++  .et-logo
++    font-size: 25px
++
++  .et-product
++    font-size: 14px
++    font-weight: 700
++    padding-left: 12px
++    border-left: 1px solid var(--et-line-strong)
++    line-height: 22px
++
++  .text-overline
++    font-size: 12px
++    letter-spacing: 0
++    line-height: 1
++    font-weight: 500
++    color: var(--et-muted)
++    font-variant-numeric: tabular-nums
++
++  .q-btn
++    border-radius: 8px
++
++  .q-chip
++    background: var(--et-hover)
++    color: var(--et-text)
++
++.q-page > .q-pb-sm
++  padding-bottom: 8px
++
++.q-page > .q-pb-sm > .q-bar
++  background: var(--et-surface)
++  color: var(--et-text)
++  border-bottom: 1px solid var(--et-line)
++  height: 32px
++  padding: 0 10px
++
++  .q-btn
++    padding: 0 10px
++    border-radius: 6px
++    font-weight: 500
++    font-size: 14px
++
++  .q-btn:hover .q-focus-helper
++    background: currentColor
++    opacity: 0.08
++
++// ---- Dashboard: tree and tables sit on the canvas as two framed panels -------
++.q-page > .q-pb-sm + .q-splitter
++  padding: 0 8px 8px
++
++  > .q-splitter__before,
++  > .q-splitter__after
++    background: var(--et-surface)
++    border: 1px solid var(--et-line)
++    border-radius: 10px
++
++  > .q-splitter__separator
++    width: 8px
++    background: transparent
++
++  > .q-splitter__after
++    border: 0
++    background: transparent
++    overflow: hidden
++
++  > .q-splitter__after > .q-splitter--horizontal
++    height: 100%
++
++    > .q-splitter__before,
++    > .q-splitter__after
++      background: var(--et-surface)
++      border: 1px solid var(--et-line)
++      border-radius: 10px
++      overflow: hidden
++
++    > .q-splitter__separator
++      height: 8px
++      background: transparent
++
++    // The framing above costs 17px of height that Tactical's table-height maths
++    // does not know about; win it back from the toolbar row and the row counter
++    // so the agent table never clips.
++    > .q-splitter__before
++      > .row > .q-field
++        padding-bottom: 0
++      > .row .q-field--dense .q-field__control,
++      > .row .q-field--dense .q-field__marginal
++        height: 36px
++        min-height: 36px
++      > .row .q-field--dense .q-field__native
++        min-height: 36px
++        padding: 0
++      .q-table__bottom
++        min-height: 23px
++        height: 23px
++        padding-top: 0
++        padding-bottom: 0
++        font-size: 12px
++
++// client tree
++.q-tree__node-header
++  border-radius: 6px
++  padding: 3px 6px
++
++.q-tree__node--selected
++  background: var(--et-selected)
++
++.q-page .q-list .q-item.q-router-link--active,
++.q-page .q-list .q-item--active
++  border-radius: 6px
++  background: var(--et-selected)
++
++// ---- Tables ---------------------------------------------------------------
++.q-table
++  font-variant-numeric: tabular-nums
++
++.q-table th
++  font-weight: 600
++  font-size: 12.5px
++  color: var(--et-muted)
++
++.q-table thead tr, .q-table tbody td, .q-table tr th
++  border-color: var(--et-line)
++
++body .table-bgcolor,
++body .table-bgcolor-dark
++  .q-table__top,
++  .q-table__bottom,
++  thead tr:first-child th
++    background-color: var(--et-surface-2)
++
++.q-table__card
++  background: var(--et-surface)
++  box-shadow: none
++
++body .highlight,
++body .highlight-dark
++  background-color: var(--et-selected)
++
++  > td:first-child
++    box-shadow: inset 3px 0 0 var(--q-primary)
++
++.q-table tbody tr:not(.highlight):not(.highlight-dark):hover > td
++  background: var(--et-hover)
++
++// ---- Tabs, buttons, fields, chips -----------------------------------------
++.q-tab
++  text-transform: none
++
++.q-tab__indicator
++  height: 2px
++  border-radius: 2px 2px 0 0
++
++.q-btn
++  text-transform: none
++  letter-spacing: 0
++  font-weight: 500
++
++.q-btn--round,
++.q-btn--rounded
++  border-radius: 50%
++
++.q-field--outlined .q-field__control
++  border-radius: 6px
++
++.q-field--outlined .q-field__control:before
++  border-color: var(--et-line-strong)
++
++.q-field--filled .q-field__control
++  border-radius: 6px 6px 0 0
++
++.q-chip
++  border-radius: 999px
++
++.q-badge
++  border-radius: 999px
++  padding: 2px 7px
++
++// ---- Floating layers ------------------------------------------------------
++.q-menu
++  border-radius: 8px
++  box-shadow: var(--et-shadow), 0 0 0 1px var(--et-line)
++  background: var(--et-surface)
++
++.q-menu .q-item
++  border-radius: 6px
++  margin: 1px 4px
++
++.q-menu .q-list
++  padding: 4px 0
++
++.q-tooltip
++  background: var(--et-ink)
++  color: #fff
++  border-radius: 6px
++  font-size: 12px
++
++.q-notification
++  border-radius: 8px
++
++.q-dialog__inner > .q-card,
++.q-dialog__inner > div > .q-card
++  border-radius: 12px
++  box-shadow: var(--et-shadow)
++
++.q-dialog__inner--maximized > .q-card,
++.q-dialog__inner--maximized > div > .q-card
++  border-radius: 0
++
++.q-dialog .q-bar
++  background: var(--et-surface)
++  color: var(--et-text)
++  border-bottom: 1px solid var(--et-line)
++  height: 44px
++  font-size: 15px
++  font-weight: 600
++  padding: 0 12px 0 16px
++
++body.body--dark .q-dialog .q-card--dark,
++body.body--dark .q-menu
++  border: 1px solid var(--et-line)
++
++// ---- Keyboard focus and scrollbars ----------------------------------------
++.q-btn:focus-visible,
++.q-tab:focus-visible,
++.q-item:focus-visible,
++.q-tree__node-header:focus-visible,
++a:focus-visible
++  outline: 2px solid var(--q-primary)
++  outline-offset: 2px
++
++*
++  scrollbar-width: thin
++  scrollbar-color: var(--et-line-strong) transparent
++
++::-webkit-scrollbar
++  width: 10px
++  height: 10px
++
++::-webkit-scrollbar-thumb
++  background: var(--et-line-strong)
++  border-radius: 10px
++  border: 2px solid transparent
++  background-clip: content-box
++
++::-webkit-scrollbar-track
++  background: transparent
++
++@media (prefers-reduced-motion: reduce)
++  *, *::before, *::after
++    transition-duration: 0.01ms !important
++    animation-duration: 0.01ms !important
++
++// ---- Sign-in ----------------------------------------------------------------
++.et-login
++  background: #0E1317
++
++.et-login-shell
++  display: grid
++  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr)
++  min-height: 100vh
++  width: 100%
++
++.et-login-brand
++  position: relative
++  background: #161D22
++  color: #fff
++  padding: 56px 56px 40px
++  display: flex
++  flex-direction: column
++  border-right: 1px solid #26313A
++
++  .et-logo
++    font-size: 72px
++    align-self: flex-start
++
++.et-login-tag
++  margin: 22px 0 0
++  font-size: 18px
++  font-weight: 500
++  color: #C9D2D9
++
++.et-login-legal
++  margin-top: auto
++  font-size: 11.5px
++  line-height: 1.55
++  color: #7F8E99
++
++  a
++    color: inherit
++
++.et-login-main
++  display: flex
++  align-items: center
++  justify-content: center
++  padding: 40px 24px
++
++.et-login-card
++  width: 100%
++  max-width: 400px
++  background: transparent
++  box-shadow: none
++
++.et-login-title
++  margin: 0
++  font-size: 26px
++  font-weight: 700
++  line-height: 1.2
++
++.et-login-hint
++  margin: 8px 0 0
++  color: #93A1AC
++  font-size: 14px
++
++.et-login-card .q-btn
++  height: 44px
++  font-size: 15px
++
++@media (max-width: 900px)
++  .et-login-shell
++    grid-template-columns: 1fr
++  .et-login-brand
++    padding: 32px 24px
++    border-right: 0
++    border-bottom: 1px solid #26313A
++    .et-logo
++      font-size: 52px
++  .et-login-legal
++    margin-top: 20px
++
++// ---- Session expired / not found --------------------------------------------
++.et-standalone
++  .et-logo
++    font-size: 56px
++    margin-bottom: 28px
+diff --git a/src/css/quasar.variables.sass b/src/css/quasar.variables.sass
+index cf59b8e..eb65624 100644
+--- a/src/css/quasar.variables.sass
++++ b/src/css/quasar.variables.sass
+@@ -1,24 +1,21 @@
+-// Quasar Sass (& SCSS) Variables
++// Quasar Sass variables — Eastern Telephone & Technologies theme (modern draft)
+ // --------------------------------------------------
+-// To customize the look and feel of this app, you can override
+-// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
++// Palette from ettky.com: the black wordmark, #056EB9 theme blue, #EB5937 orange,
++// and the #1D252B footer ink, extended into cool neutrals for the app surfaces.
++// Everything else that is Eastern-specific lives in src/css/eastern.sass.
+ 
+-// Check documentation for full list of Quasar variables
++$primary   : #056EB9
++$secondary : #D94A24
++$accent    : #EB5937
+ 
+-// Your own variables (that are declared here) and Quasar's own
+-// ones will be available out of the box in your .vue/.scss/.sass files
++$dark      : #161D22
++$dark-page : #0E1317
+ 
+-// It's highly recommended to change the default colors
+-// to match your app's branding.
+-// Tip: Use the "Theme Builder" on Quasar's documentation website.
++$positive  : #1E9E4A
++$negative  : #C62828
++$info      : #2BA9D6
++$warning   : #E8A317
+ 
+-$primary   : #1976D2
+-$secondary : #26A69A
+-$accent    : #9C27B0
+-
+-$dark      : #1D1D1D
+-
+-$positive  : #21BA45
+-$negative  : #C10015
+-$info      : #31CCEC
+-$warning   : #F2C037
++$typography-font-family : "Heebo", "Roboto", "-apple-system", "Helvetica Neue", Helvetica, Arial, sans-serif
++$generic-border-radius  : 6px
++$button-border-radius   : 6px
+diff --git a/src/layouts/MainLayout.vue b/src/layouts/MainLayout.vue
+index de394f5..c6bf756 100644
+--- a/src/layouts/MainLayout.vue
++++ b/src/layouts/MainLayout.vue
+@@ -1,6 +1,6 @@
+ <template>
+   <q-layout view="hHh lpR fFf">
+-    <q-header elevated class="bg-grey-9 text-white">
++    <q-header class="et-header">
+       <q-banner
+         v-if="needRefresh"
+         inline-actions
+@@ -60,9 +60,9 @@
+           <q-tooltip>Back to Dashboard</q-tooltip>
+         </q-btn>
+         <q-toolbar-title>
+-          Tactical RMM<span class="text-overline q-ml-sm"
+-            >v{{ currentTRMMVersion }}</span
+-          >
++          <EasternLogo compact />
++          <span class="et-product">RMM</span>
++          <span class="text-overline">v{{ currentTRMMVersion }}</span>
+           <!-- update check -->
+           <q-chip
+             v-if="updateAvailable"
+@@ -233,6 +233,7 @@ import { checkWebTermPerms, openWebTerminal } from "@/api/core";
+ 
+ // ui imports
+ import AlertsIcon from "@/components/AlertsIcon.vue";
++import EasternLogo from "@/components/ui/EasternLogo.vue";
+ import UserPreferences from "@/components/modals/coresettings/UserPreferences.vue";
+ import ResetPass from "@/components/accounts/ResetPass.vue";
+ 
+diff --git a/src/views/LoginView.vue b/src/views/LoginView.vue
+index 0f624e1..410b2f8 100644
+--- a/src/views/LoginView.vue
++++ b/src/views/LoginView.vue
+@@ -1,91 +1,120 @@
+ <template>
+   <q-layout>
+     <q-page-container>
+-      <q-page class="flex bg-image flex-center">
+-        <q-card
+-          v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '30%' }"
+-        >
+-          <q-card-section>
+-            <div class="text-center q-pt-lg">
+-              <div class="col text-h4 ellipsis">Tactical RMM</div>
+-            </div>
+-          </q-card-section>
+-          <q-card-section>
+-            <q-form ref="form" @submit.prevent="checkCreds" class="q-gutter-md">
+-              <q-input
+-                filled
+-                v-model="credentials.username"
+-                label="Username"
+-                autocomplete="username"
+-                lazy-rules
+-                :rules="[
+-                  (val) => (val && val.length > 0) || 'This field is required',
+-                ]"
+-              />
+-              <q-input
+-                v-model="credentials.password"
+-                filled
+-                :type="showPassword ? 'password' : 'text'"
+-                label="Password"
+-                autocomplete="current-password"
+-                lazy-rules
+-                :rules="[
+-                  (val) => (val && val.length > 0) || 'This field is required',
+-                ]"
+-              >
+-                <template v-slot:append>
+-                  <q-icon
+-                    :name="showPassword ? 'visibility_off' : 'visibility'"
+-                    class="cursor-pointer"
+-                    @click="showPassword = !showPassword"
+-                  />
+-                </template>
+-              </q-input>
+-              <div>
+-                <q-btn
+-                  label="Login"
+-                  type="submit"
+-                  color="primary"
+-                  class="full-width"
+-                />
+-              </div>
+-            </q-form>
+-          </q-card-section>
+-
+-          <q-card-section v-if="ssoProviders?.length > 0">
+-            <div class="text-h6 text-center q-mb-md">Log in with SSO</div>
+-            <q-separator />
+-
+-            <q-list dense bordered class="q-pa-sm">
+-              <q-item
+-                v-for="provider in ssoProviders"
+-                :key="provider.id"
+-                @click="openSSOProviderRedirect(provider.id)"
+-                clickable
+-                class="q-pa-xs hover-bg"
+-              >
+-                <q-item-section avatar>
+-                  <q-icon
+-                    :name="provider.icon ?? 'mdi-key'"
+-                    size="sm"
+-                    class="text-primary"
++      <q-page class="et-login">
++        <div class="et-login-shell">
++          <aside class="et-login-brand">
++            <EasternLogo />
++            <p class="et-login-tag">Remote monitoring &amp; management</p>
++            <p class="et-login-legal">
++              Eastern Telephone &amp; Technologies technician console.<br />
++              Built on software Copyright &copy; 2022 AmidaWare LLC, used under
++              the
++              <a
++                href="https://license.tacticalrmm.com"
++                target="_blank"
++                rel="noopener"
++                >Tactical RMM License Version 1.0</a
++              >.
++            </p>
++          </aside>
++
++          <main class="et-login-main">
++            <q-card flat class="et-login-card">
++              <q-card-section class="q-px-none">
++                <h1 class="et-login-title">Sign in</h1>
++                <p class="et-login-hint">
++                  Use your RMM account. You'll be asked for your authenticator
++                  code next.
++                </p>
++              </q-card-section>
++              <q-card-section class="q-px-none">
++                <q-form
++                  ref="form"
++                  @submit.prevent="checkCreds"
++                  class="q-gutter-md"
++                >
++                  <q-input
++                    outlined
++                    v-model="credentials.username"
++                    label="Username"
++                    autocomplete="username"
++                    lazy-rules
++                    :rules="[
++                      (val) =>
++                        (val && val.length > 0) || 'This field is required',
++                    ]"
+                   />
+-                </q-item-section>
+-                <q-item-section>
+-                  <q-item-label>{{ provider.name }}</q-item-label>
+-                </q-item-section>
+-              </q-item>
+-            </q-list>
+-          </q-card-section>
+-        </q-card>
++                  <q-input
++                    v-model="credentials.password"
++                    outlined
++                    :type="showPassword ? 'password' : 'text'"
++                    label="Password"
++                    autocomplete="current-password"
++                    lazy-rules
++                    :rules="[
++                      (val) =>
++                        (val && val.length > 0) || 'This field is required',
++                    ]"
++                  >
++                    <template v-slot:append>
++                      <q-icon
++                        :name="showPassword ? 'visibility_off' : 'visibility'"
++                        class="cursor-pointer"
++                        @click="showPassword = !showPassword"
++                      />
++                    </template>
++                  </q-input>
++                  <div>
++                    <q-btn
++                      label="Sign in"
++                      type="submit"
++                      color="primary"
++                      unelevated
++                      class="full-width"
++                    />
++                  </div>
++                </q-form>
++              </q-card-section>
++
++              <q-card-section v-if="ssoProviders?.length > 0" class="q-px-none">
++                <div class="text-subtitle2 q-mb-sm">Or sign in with SSO</div>
++
++                <q-list dense bordered class="q-pa-sm rounded-borders">
++                  <q-item
++                    v-for="provider in ssoProviders"
++                    :key="provider.id"
++                    @click="openSSOProviderRedirect(provider.id)"
++                    clickable
++                    class="q-pa-xs hover-bg"
++                  >
++                    <q-item-section avatar>
++                      <q-icon
++                        :name="provider.icon ?? 'mdi-key'"
++                        size="sm"
++                        class="text-primary"
++                      />
++                    </q-item-section>
++                    <q-item-section>
++                      <q-item-label>{{ provider.name }}</q-item-label>
++                    </q-item-section>
++                  </q-item>
++                </q-list>
++              </q-card-section>
++            </q-card>
++          </main>
++        </div>
+ 
+         <!-- 2 factor modal -->
+         <q-dialog persistent v-model="prompt">
+           <q-card style="min-width: 400px">
+             <q-form ref="formToken" @submit.prevent="onSubmit">
+-              <q-card-section class="text-center text-h6"
+-                >Two-Factor Token</q-card-section
+-              >
++              <q-card-section>
++                <div class="text-h6">Authenticator code</div>
++                <div class="text-body2 text-grey-5 q-mt-xs">
++                  Enter the 6-digit code from your authenticator app.
++                </div>
++              </q-card-section>
+ 
+               <q-card-section>
+                 <q-input
+@@ -103,7 +132,12 @@
+ 
+               <q-card-actions align="right" class="text-primary">
+                 <q-btn flat label="Cancel" v-close-popup />
+-                <q-btn flat label="Submit" type="submit" />
++                <q-btn
++                  unelevated
++                  color="primary"
++                  label="Submit"
++                  type="submit"
++                />
+               </q-card-actions>
+             </q-form>
+           </q-card>
+@@ -118,6 +152,7 @@ import { ref, reactive, onMounted } from "vue";
+ import { type QForm, useQuasar } from "quasar";
+ import { useAuthStore } from "@/stores/auth";
+ import { useRouter } from "vue-router";
++import EasternLogo from "@/components/ui/EasternLogo.vue";
+ import {
+   openSSOProviderRedirect,
+   getSSOConfig,
+@@ -186,14 +221,3 @@ onMounted(async () => {
+   }
+ });
+ </script>
+-
+-<style>
+-.bg-image {
+-  background-image: linear-gradient(
+-    90deg,
+-    rgba(20, 20, 29, 1) 0%,
+-    rgba(38, 42, 56, 1) 49%,
+-    rgba(15, 18, 20, 1) 100%
+-  );
+-}
+-</style>
+diff --git a/src/views/SessionExpired.vue b/src/views/SessionExpired.vue
+index 28b79af..d270f5d 100644
+--- a/src/views/SessionExpired.vue
++++ b/src/views/SessionExpired.vue
+@@ -1,5 +1,6 @@
+ <template>
+-  <div class="fixed-center text-center">
++  <div class="fixed-center text-center et-standalone">
++    <EasternLogo />
+     <p class="text-faded">Your session has expired</p>
+     <q-btn color="secondary" style="width: 200px" to="/login">Login</q-btn>
+   </div>
+@@ -7,6 +8,7 @@
+ 
+ <script setup lang="ts">
+ import { onMounted } from "vue";
++import EasternLogo from "@/components/ui/EasternLogo.vue";
+ import { useAuthStore } from "@/stores/auth";
+ import { useDashWSConnection } from "@/websocket/websocket";
+ 

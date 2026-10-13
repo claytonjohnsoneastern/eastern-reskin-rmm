@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Installs (or rolls back) the Eastern-themed web console on a standard Tactical RMM server.
 #
-#   sudo ./apply-eastern-reskin.sh eastern-rmm-web-v0.101.64.tar.gz    # install
+#   sudo ./apply-eastern-reskin.sh eastern-rmm-modern-web-v0.101.64.tar.gz    # install
 #   sudo ./apply-eastern-reskin.sh --rollback                          # restore the last backup
 #
 # Only /var/www/rmm/dist (static files nginx serves) is touched. The API, database,
